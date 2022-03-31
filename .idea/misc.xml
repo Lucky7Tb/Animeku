@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-hdpi/ic_baseline_favorite.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-hdpi/ic_baseline_format_list_numbered.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-hdpi/ic_baseline_search.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-mdpi/ic_baseline_favorite.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-mdpi/ic_baseline_format_list_numbered.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-mdpi/ic_baseline_search.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xhdpi/ic_baseline_favorite.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xhdpi/ic_baseline_format_list_numbered.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xhdpi/ic_baseline_search.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xxhdpi/ic_baseline_favorite.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xxhdpi/ic_baseline_format_list_numbered.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xxhdpi/ic_baseline_search.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xxxhdpi/ic_baseline_favorite.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xxxhdpi/ic_baseline_format_list_numbered.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable-xxxhdpi/ic_baseline_search.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_baseline_favorite.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_baseline_folder_shared_24.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_baseline_format_list_numbered.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_baseline_search.xml" value="0.194" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_camera_black_24dp.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_gallery_black_24dp.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_settings_black_24dp.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_slideshow_black_24dp.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/selector.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/side_nav_bar.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_favorite.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_main.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_top.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_top_activitty.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/content_favorite.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_favorite_anime.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_item.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_item_list.xml" value="0.24427083333333333" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_searched.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_searched_anime.xml" value="0.25" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_top.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_top_item.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/searched_anime_fragment.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/searched_anime_item.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/searched_anime_item_list.xml" value="0.24427083333333333" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/menu/bottom_bar_item.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/menu/bottom_navigation.xml" value="0.25833333333333336" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
