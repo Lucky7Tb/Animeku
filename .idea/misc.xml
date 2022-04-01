@@ -30,15 +30,17 @@
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/ic_slideshow_black_24dp.xml" value="0.2235" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/selector.xml" value="0.2235" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/side_nav_bar.xml" value="0.2235" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_detail.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_favorite.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_main.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_top.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_top_activitty.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/content_favorite.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_favorite.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_favorite_anime.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_item.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_item_list.xml" value="0.24427083333333333" />
-        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_searched.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_searched.xml" value="0.264" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_searched_anime.xml" value="0.25" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_top.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/fragment_top_item.xml" value="0.25833333333333336" />

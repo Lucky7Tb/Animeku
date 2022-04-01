@@ -7,7 +7,7 @@ import retrofit2.Call
 
 interface AnimeApiInterface {
     @GET("anime")
-    fun searchAnime(@Query("q") query: String, @Query("page") page: Int) : Call<ListAnime>
+    fun searchAnime(@Query("q") query: String) : Call<ListAnime>
 
     @GET("top/anime")
     fun topAnime(@Query("page") page: Int = 1) : Call<ListAnime>

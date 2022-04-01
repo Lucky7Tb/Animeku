@@ -27,15 +27,14 @@ import retrofit2.Response
  * create an instance of this fragment.
  */
 class TopFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
     private var _binding: FragmentTopBinding? = null
     private val binding get() = _binding!!
     private lateinit var topFragmentAdapter: TopFragmentAdapter
-    private var page: Int = 1;
+    private var page: Int = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        page = 1
     }
 
     override fun onStart() {

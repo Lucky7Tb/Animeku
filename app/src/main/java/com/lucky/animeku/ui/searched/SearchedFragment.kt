@@ -1,60 +1,93 @@
 package com.lucky.animeku.ui.searched
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.lucky.animeku.R
+import android.widget.ProgressBar
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.lucky.animeku.databinding.FragmentSearchedBinding
+import com.lucky.animeku.model.ListAnime
+import com.lucky.animeku.network.AnimeApiInterface
+import com.lucky.animeku.network.Api
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-const val ARG_PARAM1 = "param1"
-const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SearchedFragment.newInstance] factory method to
+ * Use the [TopFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class SearchedFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentSearchedBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var searchFragmentAdapter: SearchedFragmentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        binding.progressBar.visibility = ProgressBar.GONE
+        initRecyclerView()
+        searchAnime()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_searched, container, false)
+        _binding = FragmentSearchedBinding.inflate(inflater, container, false)
+        binding.searchButton.setOnClickListener { searchAnime() }
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SearchedFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SearchedFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun initRecyclerView() {
+        searchFragmentAdapter = SearchedFragmentAdapter(arrayListOf())
+
+        with(binding.listTopAnime) {
+            addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+            adapter = searchFragmentAdapter
+        }
+    }
+
+    private fun searchAnime() {
+        binding.progressBar.visibility = ProgressBar.VISIBLE
+        val animeApi: AnimeApiInterface = Api.getInstance().create(AnimeApiInterface::class.java)
+        animeApi.searchAnime(binding.searchField.text.toString())
+            .enqueue(object : Callback<ListAnime> {
+                override fun onResponse(
+                    call: Call<ListAnime>,
+                    response: Response<ListAnime>
+                ) {
+                    val data = response.body()
+                    if (response.isSuccessful) {
+                        searchFragmentAdapter.setData(data!!.data!!)
+                        binding.progressBar.visibility = ProgressBar.GONE
+                    }
                 }
-            }
+
+                override fun onFailure(call: Call<ListAnime>, t: Throwable) {
+                    val toast = Toast.makeText(context, "Gagal mencari anime", Toast.LENGTH_SHORT)
+                    toast.show()
+                    binding.progressBar.visibility = ProgressBar.GONE
+                }
+            })
     }
 }
