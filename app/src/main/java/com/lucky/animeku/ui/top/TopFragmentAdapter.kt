@@ -1,6 +1,5 @@
 package com.lucky.animeku.ui.top
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,16 +8,20 @@ import com.bumptech.glide.request.RequestOptions
 import com.lucky.animeku.databinding.FragmentTopItemBinding
 import com.lucky.animeku.model.DataAnime
 
-class TopFragmentAdapter(private var listDataAnime: ArrayList<DataAnime>): RecyclerView.Adapter<TopFragmentAdapter.ViewHolder>() {
+class TopFragmentAdapter(
+    private var listDataAnime: ArrayList<DataAnime>,
+    val listener: OnFavoriteButtonClick
+): RecyclerView.Adapter<TopFragmentAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = FragmentTopItemBinding.inflate(inflater, parent, false)
+        binding.favoriteButton
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(listDataAnime[position])
-        holder.itemView
     }
 
     override fun getItemCount(): Int {
@@ -35,6 +38,9 @@ class TopFragmentAdapter(private var listDataAnime: ArrayList<DataAnime>): Recyc
                 binding.animeTitle.text = anime.title
                 binding.animeRank.text = "Rank: ${anime.rank}"
                 binding.animeScore.text = "Score: ${anime.score}"
+                binding.favoriteButton.setOnClickListener {
+                    listener.onItemClicked(anime)
+                }
             }
         }
     }
@@ -42,5 +48,9 @@ class TopFragmentAdapter(private var listDataAnime: ArrayList<DataAnime>): Recyc
     fun setData(listAnime: ArrayList<DataAnime>) {
         listDataAnime.addAll(listAnime)
         notifyDataSetChanged()
+    }
+
+    interface OnFavoriteButtonClick {
+        fun onItemClicked(dataAnime: DataAnime)
     }
 }

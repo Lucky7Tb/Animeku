@@ -1,7 +1,6 @@
 package com.lucky.animeku.ui.searched
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,14 +18,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TopFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SearchedFragment : Fragment() {
     private var _binding: FragmentSearchedBinding? = null
     private val binding get() = _binding!!

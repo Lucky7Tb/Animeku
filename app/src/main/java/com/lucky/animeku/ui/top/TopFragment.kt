@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lucky.animeku.databinding.FragmentTopBinding
+import com.lucky.animeku.db.AnimeDb
+import com.lucky.animeku.model.DataAnime
 import com.lucky.animeku.model.ListAnime
 import com.lucky.animeku.network.AnimeApiInterface
 import com.lucky.animeku.network.Api
@@ -18,23 +21,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TopFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TopFragment : Fragment() {
     private var _binding: FragmentTopBinding? = null
     private val binding get() = _binding!!
     private lateinit var topFragmentAdapter: TopFragmentAdapter
-    private var page: Int = 0;
+    private var page: Int = 1;
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        page = 1
+    private val viewModel: TopViewModel by lazy {
+        val db = AnimeDb.getInstace(requireContext())
+        val factory = TopViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[TopViewModel::class.java]
     }
 
     override fun onStart() {
@@ -57,7 +53,13 @@ class TopFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        topFragmentAdapter = TopFragmentAdapter(arrayListOf())
+        topFragmentAdapter = TopFragmentAdapter(arrayListOf(), object : TopFragmentAdapter.OnFavoriteButtonClick {
+            override fun onItemClicked(dataAnime: DataAnime) {
+                viewModel.addToFavorite(dataAnime)
+                val toast = Toast.makeText(context, "Anime sudah ada di favorite", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+        })
 
         with(binding.listTopAnime) {
             addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
