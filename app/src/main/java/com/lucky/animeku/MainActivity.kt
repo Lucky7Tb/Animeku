@@ -10,9 +10,6 @@ import com.lucky.animeku.ui.searched.SearchedFragment
 import com.lucky.animeku.ui.top.TopFragment
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var topAnimeFragment: TopFragment
-    private lateinit var seachedAnimeFragment: SearchedFragment
-    private lateinit var favoriteAnimeFragment: FavoriteFragment
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        topAnimeFragment = TopFragment()
-        seachedAnimeFragment = SearchedFragment()
-        favoriteAnimeFragment = FavoriteFragment()
-        changeFragment(topAnimeFragment)
+        changeFragment(TopFragment())
 
         binding.bottomNavigation.setOnItemSelectedListener { changeView(it) }
     }
@@ -31,15 +25,15 @@ class MainActivity : AppCompatActivity() {
     private fun changeView(menuItem: MenuItem): Boolean {
         when(menuItem.itemId) {
             R.id.top_anime_menu -> {
-                changeFragment(topAnimeFragment)
+                changeFragment(TopFragment())
                 return true
             }
             R.id.searched_anime_menu -> {
-                changeFragment(seachedAnimeFragment)
+                changeFragment(SearchedFragment())
                 return true
             }
             else -> {
-                changeFragment(favoriteAnimeFragment)
+                changeFragment(FavoriteFragment())
                 return true
             }
         }

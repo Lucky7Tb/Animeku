@@ -8,10 +8,10 @@ import com.bumptech.glide.request.RequestOptions
 import com.lucky.animeku.databinding.FragmentTopItemBinding
 import com.lucky.animeku.model.DataAnime
 
-class TopFragmentAdapter(
+class TopAdapter(
     private var listDataAnime: ArrayList<DataAnime>,
     val listener: OnFavoriteButtonClick
-): RecyclerView.Adapter<TopFragmentAdapter.ViewHolder>() {
+): RecyclerView.Adapter<TopAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)

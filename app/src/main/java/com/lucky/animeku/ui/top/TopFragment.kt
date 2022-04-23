@@ -22,9 +22,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TopFragment : Fragment() {
-    private var _binding: FragmentTopBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var topFragmentAdapter: TopFragmentAdapter
+    private lateinit var fragmentTopBinding: FragmentTopBinding
+    private lateinit var topFragmentAdapter: TopAdapter
     private var page: Int = 1;
 
     private val viewModel: TopViewModel by lazy {
@@ -43,25 +42,20 @@ class TopFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentTopBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        fragmentTopBinding = FragmentTopBinding.inflate(inflater, container, false)
+        return fragmentTopBinding.root
     }
 
     private fun initRecyclerView() {
-        topFragmentAdapter = TopFragmentAdapter(arrayListOf(), object : TopFragmentAdapter.OnFavoriteButtonClick {
+        topFragmentAdapter = TopAdapter(arrayListOf(), object : TopAdapter.OnFavoriteButtonClick {
             override fun onItemClicked(dataAnime: DataAnime) {
                 viewModel.addToFavorite(dataAnime)
-                val toast = Toast.makeText(context, "Anime sudah ada di favorite", Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(context, "Berhasil ditambahkan ke favorit", Toast.LENGTH_SHORT)
                 toast.show()
             }
         })
 
-        with(binding.listTopAnime) {
+        with(fragmentTopBinding.listTopAnime) {
             addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             adapter = topFragmentAdapter
@@ -78,7 +72,7 @@ class TopFragment : Fragment() {
     }
 
     private fun getTopAnime() {
-        binding.progressBar.visibility = ProgressBar.VISIBLE
+        fragmentTopBinding.progressBar.visibility = ProgressBar.VISIBLE
         val animeApi: AnimeApiInterface = Api.getInstance().create(AnimeApiInterface::class.java)
         animeApi.topAnime(page)
             .enqueue(object : Callback<ListAnime> {
@@ -89,16 +83,15 @@ class TopFragment : Fragment() {
                     val data = response.body()
                     if (response.isSuccessful) {
                         topFragmentAdapter.setData(data!!.data!!)
-                        binding.progressBar.visibility = ProgressBar.GONE
+                        fragmentTopBinding.progressBar.visibility = ProgressBar.GONE
                     }
                 }
 
                 override fun onFailure(call: Call<ListAnime>, t: Throwable) {
                     val toast = Toast.makeText(context, "Gagal mengambil data top anime", Toast.LENGTH_SHORT)
                     toast.show()
-                    binding.progressBar.visibility = ProgressBar.GONE
+                    fragmentTopBinding.progressBar.visibility = ProgressBar.GONE
                 }
             })
     }
-
 }

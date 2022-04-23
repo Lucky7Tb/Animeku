@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Delete
 
 @Dao
 interface AnimeDao {
@@ -15,4 +16,7 @@ interface AnimeDao {
 
     @Query("SELECT * FROM anime WHERE mal_id = :malId")
     fun getOneFavoriteAnime(malId: Int): LiveData<AnimeEntity?>
+
+    @Query("Delete FROM anime WHERE id = :id")
+    fun deleteFavoriteAnime(id: Long)
 }

@@ -28,4 +28,6 @@
         item
     </string>
     <string name="favorit">Favorit</string>
+    <string name="belum_ada_anime_favorite">Belum ada anime favorite</string>
+    <string name="Hapus">Hapus</string>
 </resources>
