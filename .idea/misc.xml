@@ -32,7 +32,7 @@
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/drawable/side_nav_bar.xml" value="0.2235" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_detail.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_favorite.xml" value="0.25833333333333336" />
-        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_main.xml" value="0.25833333333333336" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_top.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/activity_top_activitty.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/content_favorite.xml" value="0.25833333333333336" />
@@ -48,6 +48,7 @@
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/searched_anime_fragment.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/searched_anime_item.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/searched_anime_item_list.xml" value="0.24427083333333333" />
+        <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/layout/top_item.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/menu/bottom_bar_item.xml" value="0.25833333333333336" />
         <entry key="..\:/dokumen/tugas/semester4/mobpro/animeku/app/src/main/res/menu/bottom_navigation.xml" value="0.25833333333333336" />
       </map>

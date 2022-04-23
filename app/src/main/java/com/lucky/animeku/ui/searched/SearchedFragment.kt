@@ -34,7 +34,7 @@ class SearchedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         fragmentSearchedBinding = FragmentSearchedBinding.inflate(inflater, container, false)
-        fragmentSearchedBinding.searchButton.setOnClickListener { searchAnime() }
+        fragmentSearchedBinding.searchButton.setOnClickListener { onClickSearchAnime() }
         return fragmentSearchedBinding.root
     }
 
@@ -45,6 +45,16 @@ class SearchedFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             adapter = searchFragmentAdapter
+        }
+    }
+
+    private fun onClickSearchAnime() {
+        val keyword: String = fragmentSearchedBinding.searchField.text.toString()
+        if (keyword.isEmpty() || keyword.isBlank()) {
+            val toast = Toast.makeText(context, "Keyword anime tidak boleh kosong", Toast.LENGTH_SHORT)
+            toast.show()
+        } else {
+            searchAnime()
         }
     }
 

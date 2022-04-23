@@ -1,5 +1,6 @@
 package com.lucky.animeku
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
