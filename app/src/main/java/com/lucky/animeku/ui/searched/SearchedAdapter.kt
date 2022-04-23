@@ -9,8 +9,10 @@ import com.lucky.animeku.databinding.TopItemBinding
 import com.lucky.animeku.model.DataAnime
 
 class SearchedAdapter(
-        private var listDataAnime: ArrayList<DataAnime>
+        private var listDataAnime: ArrayList<DataAnime>,
+        private var listener: OnFavoriteButtonClick
 ): RecyclerView.Adapter<SearchedAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = TopItemBinding.inflate(inflater, parent, false)
@@ -35,6 +37,9 @@ class SearchedAdapter(
                 binding.animeTitle.text = anime.title
                 binding.animeRank.text = "Rank: ${anime.rank}"
                 binding.animeScore.text = "Score: ${anime.score}"
+                binding.favoriteButton.setOnClickListener {
+                    listener.onItemClicked(anime)
+                }
             }
         }
     }
@@ -43,5 +48,9 @@ class SearchedAdapter(
         listDataAnime.clear()
         listDataAnime.addAll(listAnime)
         notifyDataSetChanged()
+    }
+
+    interface OnFavoriteButtonClick {
+        fun onItemClicked(dataAnime: DataAnime)
     }
 }

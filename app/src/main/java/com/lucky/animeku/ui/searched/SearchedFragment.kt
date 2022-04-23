@@ -7,13 +7,17 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lucky.animeku.databinding.FragmentSearchedBinding
+import com.lucky.animeku.db.AnimeDb
+import com.lucky.animeku.model.DataAnime
 import com.lucky.animeku.model.ListAnime
 import com.lucky.animeku.network.AnimeApiInterface
 import com.lucky.animeku.network.Api
+import com.lucky.animeku.ui.top.TopViewModelFactory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,6 +25,12 @@ import retrofit2.Response
 class SearchedFragment : Fragment() {
     private lateinit var fragmentSearchedBinding: FragmentSearchedBinding
     private lateinit var searchFragmentAdapter: SearchedAdapter
+
+    private val viewModel: SearchedViewModel by lazy {
+        val db = AnimeDb.getInstace(requireContext())
+        val factory = SearchedViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[SearchedViewModel::class.java]
+    }
 
     override fun onStart() {
         super.onStart()
@@ -39,7 +49,13 @@ class SearchedFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        searchFragmentAdapter = SearchedAdapter(arrayListOf())
+        searchFragmentAdapter = SearchedAdapter(arrayListOf(), object : SearchedAdapter.OnFavoriteButtonClick {
+            override fun onItemClicked(dataAnime: DataAnime) {
+                viewModel.addToFavorite(dataAnime)
+                val toast = Toast.makeText(context, "Berhasil ditambahkan ke favorit", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+        })
 
         with(fragmentSearchedBinding.listTopAnime) {
             addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))

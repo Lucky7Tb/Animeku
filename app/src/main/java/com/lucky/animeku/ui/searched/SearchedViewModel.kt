@@ -1,4 +1,4 @@
-package com.lucky.animeku.ui.top
+package com.lucky.animeku.ui.searched
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,7 +9,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class TopViewModel(private val db: AnimeDao): ViewModel() {
+class SearchedViewModel(private val db: AnimeDao): ViewModel() {
+
     fun addToFavorite(anime: DataAnime) {
         val dataAnime  = AnimeEntity(
             mal_id = anime.malId,
