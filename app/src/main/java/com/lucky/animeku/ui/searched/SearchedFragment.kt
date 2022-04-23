@@ -20,11 +20,7 @@ import retrofit2.Response
 
 class SearchedFragment : Fragment() {
     private lateinit var fragmentSearchedBinding: FragmentSearchedBinding
-    private lateinit var searchFragmentAdapter: SearchedFragmentAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var searchFragmentAdapter: SearchedAdapter
 
     override fun onStart() {
         super.onStart()
@@ -43,7 +39,7 @@ class SearchedFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        searchFragmentAdapter = SearchedFragmentAdapter(arrayListOf())
+        searchFragmentAdapter = SearchedAdapter(arrayListOf())
 
         with(fragmentSearchedBinding.listTopAnime) {
             addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))

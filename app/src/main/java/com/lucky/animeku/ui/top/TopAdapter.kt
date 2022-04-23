@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.lucky.animeku.databinding.FragmentTopItemBinding
+import com.lucky.animeku.databinding.TopItemBinding
 import com.lucky.animeku.model.DataAnime
 
 class TopAdapter(
@@ -15,7 +15,7 @@ class TopAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = FragmentTopItemBinding.inflate(inflater, parent, false)
+        val binding = TopItemBinding.inflate(inflater, parent, false)
         binding.favoriteButton
         return ViewHolder(binding)
     }
@@ -28,7 +28,7 @@ class TopAdapter(
         return listDataAnime.size
     }
 
-    inner class ViewHolder(private val binding: FragmentTopItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: TopItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(anime: DataAnime) {
             return with(binding) {
                 Glide.with(binding.root)
