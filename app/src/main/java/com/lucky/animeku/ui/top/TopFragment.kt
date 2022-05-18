@@ -32,17 +32,13 @@ class TopFragment : Fragment() {
         ViewModelProvider(this, factory)[TopViewModel::class.java]
     }
 
-    override fun onStart() {
-        super.onStart()
-        initRecyclerView()
-        getTopAnime()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         fragmentTopBinding = FragmentTopBinding.inflate(inflater, container, false)
+        initRecyclerView()
+        getTopAnime()
         return fragmentTopBinding.root
     }
 

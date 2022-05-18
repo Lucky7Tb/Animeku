@@ -13,8 +13,7 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:context=".ui.top.TopFragment"
-        tools:listitem="@layout/top_item"
-        android:layout_marginBottom="55dp">
+        tools:listitem="@layout/top_item">
     </androidx.recyclerview.widget.RecyclerView>
 
     <ProgressBar

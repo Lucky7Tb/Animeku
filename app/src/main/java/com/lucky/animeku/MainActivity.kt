@@ -1,51 +1,34 @@
 package com.lucky.animeku
 
-import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.fragment.app.Fragment
-import com.lucky.animeku.databinding.ActivityMainBinding
-import com.lucky.animeku.ui.favorite.FavoriteFragment
-import com.lucky.animeku.ui.searched.SearchedFragment
-import com.lucky.animeku.ui.top.TopFragment
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var navigationController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        changeFragment(TopFragment())
+        navigationController = findNavController(R.id.navHostFragment)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.topFragment, R.id.searchedFragment, R.id.favoriteFragment)
+        )
 
-        binding.bottomNavigation.setOnItemSelectedListener { changeView(it) }
+        NavigationUI.setupActionBarWithNavController(this, navigationController, appBarConfiguration)
+
+        val bottomBarNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomBarNavigation.setupWithNavController(navigationController)
     }
 
-    private fun changeView(menuItem: MenuItem): Boolean {
-        when(menuItem.itemId) {
-            R.id.top_anime_menu -> {
-                changeFragment(TopFragment())
-                return true
-            }
-            R.id.searched_anime_menu -> {
-                changeFragment(SearchedFragment())
-                return true
-            }
-            else -> {
-                changeFragment(FavoriteFragment())
-                return true
-            }
-        }
-
-        return false
-    }
-
-    private fun changeFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.containerView, fragment)
-            commit()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        return navigationController.navigateUp()
     }
 }
