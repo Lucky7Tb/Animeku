@@ -1,7 +1,6 @@
 package com.lucky.animeku.ui.favorite
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
@@ -9,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lucky.animeku.databinding.FragmentFavoriteBinding
 import com.lucky.animeku.db.AnimeDb
-import com.lucky.animeku.db.AnimeEntity
 
 class FavoriteFragment : Fragment() {
     private lateinit var fragmentFavoritBinding: FragmentFavoriteBinding
@@ -36,7 +35,14 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         favoriteAdapter = FavoriteAdapter(object : FavoriteAdapter.OnDeleteFavoriteButtonClick {
             override fun onItemClick(id: Long) {
-                viewModel.deleteFavoriteAnime(id)
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Konfirmasi penghapusan")
+                    .setMessage("Yakin ingin menghapus anime ini dari favorit ?")
+                    .setNegativeButton("Batal") { _, _ ->
+                    }
+                    .setPositiveButton("Hapus") { _, _ ->
+                        viewModel.deleteFavoriteAnime(id)
+                    }.show()
             }
         })
         with(fragmentFavoritBinding.favoriteRecyclerView) {

@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_searched">
         <action
             android:id="@+id/action_searchedFragment_to_detailActivity"
-            app:destination="@id/detailActivity" />
+            app:destination="@id/detailActivity"/>
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -29,11 +29,10 @@
         android:label="FavoriteAnime">
         <action
             android:id="@+id/action_favoriteFragment_to_detailActivity"
-            app:destination="@id/detailActivity" />
+            app:destination="@id/detailActivity"/>
     </fragment>
     <activity
         android:id="@+id/detailActivity"
         android:name="com.lucky.animeku.ui.detail.DetailActivity"
-        android:label="DetailAnime"
-        tools:layout="@layout/activity_detail" />
+        android:label="DetailActivity" />
 </navigation>

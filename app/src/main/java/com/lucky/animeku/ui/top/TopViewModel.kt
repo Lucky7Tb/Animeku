@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TopViewModel(private val db: AnimeDao): ViewModel() {
+
     fun addToFavorite(anime: DataAnime) {
         val dataAnime  = AnimeEntity(
             mal_id = anime.malId,
@@ -25,4 +26,5 @@ class TopViewModel(private val db: AnimeDao): ViewModel() {
             }
         }
     }
+
 }

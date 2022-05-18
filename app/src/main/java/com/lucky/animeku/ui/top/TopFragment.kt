@@ -8,6 +8,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,22 +33,32 @@ class TopFragment : Fragment() {
         ViewModelProvider(this, factory)[TopViewModel::class.java]
     }
 
+    override fun onStart() {
+        super.onStart()
+        initRecyclerView()
+        getTopAnime()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         fragmentTopBinding = FragmentTopBinding.inflate(inflater, container, false)
-        initRecyclerView()
-        getTopAnime()
         return fragmentTopBinding.root
     }
 
     private fun initRecyclerView() {
-        topFragmentAdapter = TopAdapter(arrayListOf(), object : TopAdapter.OnFavoriteButtonClick {
+        topFragmentAdapter = TopAdapter(arrayListOf(), object : TopAdapter.OnClickListener {
             override fun onItemClicked(dataAnime: DataAnime) {
                 viewModel.addToFavorite(dataAnime)
                 val toast = Toast.makeText(context, "Berhasil ditambahkan ke favorit", Toast.LENGTH_SHORT)
                 toast.show()
+            }
+
+            override fun goToDetailAnime() {
+                findNavController().navigate(
+                    TopFragmentDirections.actionTopFragmentToDetailActivity()
+                )
             }
         })
 
