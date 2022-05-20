@@ -30,4 +30,8 @@
     <string name="favorit">Favorit</string>
     <string name="belum_ada_anime_favorite">Belum ada anime favorite</string>
     <string name="Hapus">Hapus</string>
+    <string name="anime_poster">Anime poster</string>
+    <string name="placeholder">Placeholder</string>
+    <string name="share_ke_temanmu">Share ke temanmu</string>
+    <string name="detail">Detail</string>
 </resources>

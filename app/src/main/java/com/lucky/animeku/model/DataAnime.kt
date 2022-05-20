@@ -6,9 +6,10 @@ data class DataAnime(
     val score: Double,
     val rank: Int,
     val episodes: Int,
-    val malId: Int,
+    val mal_id: Int,
     val synopsis: String? = null,
     val images: Images,
+    val genres: List<GenresItem>,
 )
 
 data class Images(
@@ -19,4 +20,11 @@ data class Jpg(
     val large_image_url: String? = null,
     val small_image_url: String? = null,
     val image_url: String? = null
+)
+
+data class GenresItem(
+    val name: String,
+    val malId: Int,
+    val type: String,
+    val url: String
 )

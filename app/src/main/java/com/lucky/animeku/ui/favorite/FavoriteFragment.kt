@@ -6,11 +6,13 @@ import android.view.ViewGroup
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.lucky.animeku.databinding.FragmentFavoriteBinding
 import com.lucky.animeku.db.AnimeDb
+import com.lucky.animeku.ui.searched.SearchedFragmentDirections
 
 class FavoriteFragment : Fragment() {
     private lateinit var fragmentFavoritBinding: FragmentFavoriteBinding
@@ -33,7 +35,7 @@ class FavoriteFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        favoriteAdapter = FavoriteAdapter(object : FavoriteAdapter.OnDeleteFavoriteButtonClick {
+        favoriteAdapter = FavoriteAdapter(object : FavoriteAdapter.OnClickListener {
             override fun onItemClick(id: Long) {
                 MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Konfirmasi penghapusan")
@@ -43,6 +45,12 @@ class FavoriteFragment : Fragment() {
                     .setPositiveButton("Hapus") { _, _ ->
                         viewModel.deleteFavoriteAnime(id)
                     }.show()
+            }
+
+            override fun goToDetailAnime(malId: Int) {
+                findNavController().navigate(
+                    FavoriteFragmentDirections.actionFavoriteFragmentToDetailActivity(malId)
+                )
             }
         })
         with(fragmentFavoritBinding.favoriteRecyclerView) {

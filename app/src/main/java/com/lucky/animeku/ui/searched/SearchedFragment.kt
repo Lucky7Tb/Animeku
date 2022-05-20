@@ -8,6 +8,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,7 @@ import com.lucky.animeku.model.DataAnime
 import com.lucky.animeku.model.ListAnime
 import com.lucky.animeku.network.AnimeApiInterface
 import com.lucky.animeku.network.Api
+import com.lucky.animeku.ui.top.TopFragmentDirections
 import com.lucky.animeku.ui.top.TopViewModelFactory
 import retrofit2.Call
 import retrofit2.Callback
@@ -49,11 +51,17 @@ class SearchedFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        searchFragmentAdapter = SearchedAdapter(arrayListOf(), object : SearchedAdapter.OnFavoriteButtonClick {
+        searchFragmentAdapter = SearchedAdapter(arrayListOf(), object : SearchedAdapter.OnClickListener {
             override fun onItemClicked(dataAnime: DataAnime) {
                 viewModel.addToFavorite(dataAnime)
                 val toast = Toast.makeText(context, "Berhasil ditambahkan ke favorit", Toast.LENGTH_SHORT)
                 toast.show()
+            }
+
+            override fun goToDetailAnime(malId: Int) {
+                findNavController().navigate(
+                    SearchedFragmentDirections.actionSearchedFragmentToDetailActivity(malId)
+                )
             }
         })
 

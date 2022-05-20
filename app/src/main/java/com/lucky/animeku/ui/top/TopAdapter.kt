@@ -1,5 +1,6 @@
 package com.lucky.animeku.ui.top
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -41,8 +42,8 @@ class TopAdapter(
                 binding.favoriteButton.setOnClickListener {
                     clickListener.onItemClicked(anime)
                 }
-                root.setOnClickListener {
-                    clickListener.goToDetailAnime()
+                binding.detailButton.setOnClickListener {
+                    clickListener.goToDetailAnime(anime.mal_id)
                 }
             }
         }
@@ -55,6 +56,6 @@ class TopAdapter(
 
     interface OnClickListener {
         fun onItemClicked(dataAnime: DataAnime)
-        fun goToDetailAnime()
+        fun goToDetailAnime(malId: Int)
     }
 }

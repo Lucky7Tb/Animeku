@@ -13,7 +13,7 @@ class SearchedViewModel(private val db: AnimeDao): ViewModel() {
 
     fun addToFavorite(anime: DataAnime) {
         val dataAnime  = AnimeEntity(
-            mal_id = anime.malId,
+            mal_id = anime.mal_id,
             title = anime.title,
             image = anime.images.jpg.large_image_url!!,
             rank = anime.rank,

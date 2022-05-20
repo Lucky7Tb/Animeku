@@ -34,5 +34,9 @@
     <activity
         android:id="@+id/detailActivity"
         android:name="com.lucky.animeku.ui.detail.DetailActivity"
-        android:label="DetailActivity" />
+        android:label="DetailActivity" >
+        <argument
+            android:name="malId"
+            app:argType="integer" />
+    </activity>
 </navigation>

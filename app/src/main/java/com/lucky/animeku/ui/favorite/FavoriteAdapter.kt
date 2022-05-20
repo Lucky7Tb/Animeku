@@ -10,7 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.lucky.animeku.databinding.FavoriteItemBinding
 import com.lucky.animeku.db.AnimeEntity
 
-class FavoriteAdapter(private val listener: OnDeleteFavoriteButtonClick): ListAdapter<AnimeEntity, FavoriteAdapter.ViewHolder>(DIFF_CALLBACK) {
+class FavoriteAdapter(private val clickListener: OnClickListener): ListAdapter<AnimeEntity, FavoriteAdapter.ViewHolder>(DIFF_CALLBACK) {
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<AnimeEntity>() {
             override fun areItemsTheSame(oldData: AnimeEntity, newData: AnimeEntity): Boolean {
@@ -25,7 +25,7 @@ class FavoriteAdapter(private val listener: OnDeleteFavoriteButtonClick): ListAd
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = FavoriteItemBinding.inflate(inflater, parent, false)
-        return ViewHolder(binding, listener)
+        return ViewHolder(binding, clickListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -34,7 +34,7 @@ class FavoriteAdapter(private val listener: OnDeleteFavoriteButtonClick): ListAd
 
     class ViewHolder(
         private val binding: FavoriteItemBinding,
-        private val listener:  OnDeleteFavoriteButtonClick
+        private val clickListener: OnClickListener
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(anime: AnimeEntity) = with(binding) {
             Glide.with(root)
@@ -45,12 +45,16 @@ class FavoriteAdapter(private val listener: OnDeleteFavoriteButtonClick): ListAd
             animeRank.text = "Rank: ${anime.rank}"
             animeScore.text = "Score: ${anime.score}"
             deleteFavoriteButton.setOnClickListener {
-                listener.onItemClick(anime.id)
+                clickListener.onItemClick(anime.id)
+            }
+            detailButton.setOnClickListener {
+                clickListener.goToDetailAnime(anime.mal_id)
             }
         }
     }
 
-    interface OnDeleteFavoriteButtonClick {
+    interface OnClickListener {
         fun onItemClick(id: Long)
+        fun goToDetailAnime(malId: Int)
     }
 }

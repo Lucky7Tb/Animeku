@@ -10,7 +10,7 @@ import com.lucky.animeku.model.DataAnime
 
 class SearchedAdapter(
         private var listDataAnime: ArrayList<DataAnime>,
-        private var listener: OnFavoriteButtonClick
+        private var clickListener: OnClickListener
 ): RecyclerView.Adapter<SearchedAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,8 +38,12 @@ class SearchedAdapter(
                 binding.animeRank.text = "Rank: ${anime.rank}"
                 binding.animeScore.text = "Score: ${anime.score}"
                 binding.favoriteButton.setOnClickListener {
-                    listener.onItemClicked(anime)
+                    clickListener.onItemClicked(anime)
                 }
+                binding.detailButton.setOnClickListener {
+                    clickListener.goToDetailAnime(anime.mal_id)
+                }
+
             }
         }
     }
@@ -50,7 +54,8 @@ class SearchedAdapter(
         notifyDataSetChanged()
     }
 
-    interface OnFavoriteButtonClick {
+    interface OnClickListener {
         fun onItemClicked(dataAnime: DataAnime)
+        fun goToDetailAnime(malId: Int)
     }
 }
