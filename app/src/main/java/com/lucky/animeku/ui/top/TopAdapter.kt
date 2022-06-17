@@ -1,6 +1,5 @@
 package com.lucky.animeku.ui.top
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -49,7 +48,7 @@ class TopAdapter(
         }
     }
 
-    fun setData(listAnime: ArrayList<DataAnime>) {
+    fun setData(listAnime: List<DataAnime>) {
         listDataAnime.addAll(listAnime)
         notifyDataSetChanged()
     }
